@@ -5,7 +5,6 @@ from rest_framework import status
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from calculator.serializers import CalculationSerializer
 
-
 # Create your views here.
 def mm_to_points(mm):
     points_per_mm = 72 / 25.4
@@ -21,10 +20,10 @@ def index(request):
         conversion_type = request.POST.get('conversion_type')
         try:
             value = float(request.POST.get('value', 0))
-            if conversion_type == 'mm_to_points' :
+            if conversion_type == 'mm_to_points':
                 result_value = mm_to_points(value)
                 result = f'{value} mm is approximately {result_value:.2f} points'
-            elif conversion_type == 'points_to_mm' :
+            elif conversion_type == 'points_to_mm':
                 result_value = points_to_mm(value)
                 result = f'{value} points is approximately {result_value:.2f} mm'
         except ValueError:
@@ -33,7 +32,7 @@ def index(request):
     return render(request, 'index.html', {'result': result})
 
 
-class ConversionAPIView(APIView) :
+class ConversionAPIView(APIView):
     @extend_schema(
         request=CalculationSerializer,
         responses={200: CalculationSerializer},
@@ -48,13 +47,13 @@ class ConversionAPIView(APIView) :
             )
         ]
     )
-    def post(self, request) :
+    def post(self, request):
         serializer = CalculationSerializer(data=request.data)
-        if serializer.is_valid() :
+        if serializer.is_valid():
             conversion_type = serializer.validated_data['conversion_type']
             value = serializer.validated_data['value']
 
-            if conversion_type == 'mm_to_points' :
+            if conversion_type == 'mm_to_points':
                 result = mm_to_points(value)
                 result_text = f'{value} mm is approximately {result:.2f} points'
             elif conversion_type == 'points_to_mm':

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+body {
+    background-color: #264b5d;
+    font-family: Montserrat, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffcc;
+}
+.converter {
+    margin: 20px 0;
+}
+input, select, button {
+    background-color: #264b5d;
+    margin: 5px;
+    padding: 5px;
+    color: #ffffcc;
+}
+#result {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #ffffcc;
+}
+
+.api-link {
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #ffffcc;
+}

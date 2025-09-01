@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-1(w-&s#3d@879($t(cyu45p*y8b_sksfz(@1qnwu&y186yj4v#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','guess-a-number-snfu.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','type-to-mm-calculator.onrender.com']
 
 
 # Application definition
